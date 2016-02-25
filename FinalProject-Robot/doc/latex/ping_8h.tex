@@ -1,0 +1,105 @@
+\hypertarget{ping_8h}{\section{ping.\+h File Reference}
+\label{ping_8h}\index{ping.\+h@{ping.\+h}}
+}
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{ping_8h_aa947d60134e95ffdb9fcbdfd0a9df03d}{P\+I\+N\+G\+\_\+\+Measure\+C\+M}()~\hyperlink{ping_8h_a47c99197c81d00be7333d2ea5cee1672}{P\+I\+N\+G\+\_\+\+Ticks\+To\+C\+M}(\hyperlink{ping_8h_aac061b5911e621338892e2eec54af47b}{P\+I\+N\+G\+\_\+\+Measure\+Ticks}())
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{ping_8h_a90a1278607da668485103c78c703962e}{P\+I\+N\+G\+\_\+\+Initialize} ()
+\item 
+uint16\+\_\+t \hyperlink{ping_8h_aac061b5911e621338892e2eec54af47b}{P\+I\+N\+G\+\_\+\+Measure\+Ticks} ()
+\item 
+uint16\+\_\+t \hyperlink{ping_8h_a00efb71b23f3470676b50ec177d61f6c}{P\+I\+N\+G\+\_\+\+Ticks\+To\+U\+S} (uint16\+\_\+t ticks)
+\item 
+uint16\+\_\+t \hyperlink{ping_8h_a47c99197c81d00be7333d2ea5cee1672}{P\+I\+N\+G\+\_\+\+Ticks\+To\+C\+M} (uint16\+\_\+t ticks)
+\item 
+uint16\+\_\+t \hyperlink{ping_8h_ada03c86b63263e24e6620a9b05e3c227}{P\+I\+N\+G\+\_\+\+Get\+Overflows} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Jake Drahos
+\end{DoxyAuthor}
+Blocking driver for Ping))) sensor. 
+
+\subsection{Macro Definition Documentation}
+\hypertarget{ping_8h_aa947d60134e95ffdb9fcbdfd0a9df03d}{\index{ping.\+h@{ping.\+h}!P\+I\+N\+G\+\_\+\+Measure\+C\+M@{P\+I\+N\+G\+\_\+\+Measure\+C\+M}}
+\index{P\+I\+N\+G\+\_\+\+Measure\+C\+M@{P\+I\+N\+G\+\_\+\+Measure\+C\+M}!ping.\+h@{ping.\+h}}
+\subsubsection[{P\+I\+N\+G\+\_\+\+Measure\+C\+M}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+I\+N\+G\+\_\+\+Measure\+C\+M(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~{\bf P\+I\+N\+G\+\_\+\+Ticks\+To\+C\+M}({\bf P\+I\+N\+G\+\_\+\+Measure\+Ticks}())}}\label{ping_8h_aa947d60134e95ffdb9fcbdfd0a9df03d}
+Wrapper macro. Wraps \hyperlink{ping_8h_aac061b5911e621338892e2eec54af47b}{P\+I\+N\+G\+\_\+\+Measure\+Ticks()} in \hyperlink{ping_8h_a47c99197c81d00be7333d2ea5cee1672}{P\+I\+N\+G\+\_\+\+Ticks\+To\+C\+M()} 
+
+\subsection{Function Documentation}
+\hypertarget{ping_8h_ada03c86b63263e24e6620a9b05e3c227}{\index{ping.\+h@{ping.\+h}!P\+I\+N\+G\+\_\+\+Get\+Overflows@{P\+I\+N\+G\+\_\+\+Get\+Overflows}}
+\index{P\+I\+N\+G\+\_\+\+Get\+Overflows@{P\+I\+N\+G\+\_\+\+Get\+Overflows}!ping.\+h@{ping.\+h}}
+\subsubsection[{P\+I\+N\+G\+\_\+\+Get\+Overflows}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t P\+I\+N\+G\+\_\+\+Get\+Overflows (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{ping_8h_ada03c86b63263e24e6620a9b05e3c227}
+Get the number of overflows that have occurred
+
+Utility function that isn't really useful any more \hypertarget{ping_8h_a90a1278607da668485103c78c703962e}{\index{ping.\+h@{ping.\+h}!P\+I\+N\+G\+\_\+\+Initialize@{P\+I\+N\+G\+\_\+\+Initialize}}
+\index{P\+I\+N\+G\+\_\+\+Initialize@{P\+I\+N\+G\+\_\+\+Initialize}!ping.\+h@{ping.\+h}}
+\subsubsection[{P\+I\+N\+G\+\_\+\+Initialize}]{\setlength{\rightskip}{0pt plus 5cm}void P\+I\+N\+G\+\_\+\+Initialize (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{ping_8h_a90a1278607da668485103c78c703962e}
+Initialization function. Call before using any other \hyperlink{ping_8h}{ping.\+h} functions \hypertarget{ping_8h_aac061b5911e621338892e2eec54af47b}{\index{ping.\+h@{ping.\+h}!P\+I\+N\+G\+\_\+\+Measure\+Ticks@{P\+I\+N\+G\+\_\+\+Measure\+Ticks}}
+\index{P\+I\+N\+G\+\_\+\+Measure\+Ticks@{P\+I\+N\+G\+\_\+\+Measure\+Ticks}!ping.\+h@{ping.\+h}}
+\subsubsection[{P\+I\+N\+G\+\_\+\+Measure\+Ticks}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t P\+I\+N\+G\+\_\+\+Measure\+Ticks (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{ping_8h_aac061b5911e621338892e2eec54af47b}
+Perform a Ping))) measurement
+
+This function will block for the duration of the measurement, then return the number of timer ticks. This tick count must be converted using \hyperlink{ping_8h_a00efb71b23f3470676b50ec177d61f6c}{P\+I\+N\+G\+\_\+\+Ticks\+To\+U\+S()} or \hyperlink{ping_8h_a47c99197c81d00be7333d2ea5cee1672}{P\+I\+N\+G\+\_\+\+Ticks\+To\+C\+M()}.
+
+\begin{DoxyReturn}{Returns}
+Number of timer ticks in pulse 
+\end{DoxyReturn}
+\hypertarget{ping_8h_a47c99197c81d00be7333d2ea5cee1672}{\index{ping.\+h@{ping.\+h}!P\+I\+N\+G\+\_\+\+Ticks\+To\+C\+M@{P\+I\+N\+G\+\_\+\+Ticks\+To\+C\+M}}
+\index{P\+I\+N\+G\+\_\+\+Ticks\+To\+C\+M@{P\+I\+N\+G\+\_\+\+Ticks\+To\+C\+M}!ping.\+h@{ping.\+h}}
+\subsubsection[{P\+I\+N\+G\+\_\+\+Ticks\+To\+C\+M}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t P\+I\+N\+G\+\_\+\+Ticks\+To\+C\+M (
+\begin{DoxyParamCaption}
+\item[{uint16\+\_\+t}]{ticks}
+\end{DoxyParamCaption}
+)}}\label{ping_8h_a47c99197c81d00be7333d2ea5cee1672}
+Convert ticks to centimeters
+
+
+\begin{DoxyParams}{Parameters}
+{\em ticks} & Tick count from \hyperlink{ping_8h_aac061b5911e621338892e2eec54af47b}{P\+I\+N\+G\+\_\+\+Measure\+Ticks()} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Distance in centimeters to the nearest object 
+\end{DoxyReturn}
+\hypertarget{ping_8h_a00efb71b23f3470676b50ec177d61f6c}{\index{ping.\+h@{ping.\+h}!P\+I\+N\+G\+\_\+\+Ticks\+To\+U\+S@{P\+I\+N\+G\+\_\+\+Ticks\+To\+U\+S}}
+\index{P\+I\+N\+G\+\_\+\+Ticks\+To\+U\+S@{P\+I\+N\+G\+\_\+\+Ticks\+To\+U\+S}!ping.\+h@{ping.\+h}}
+\subsubsection[{P\+I\+N\+G\+\_\+\+Ticks\+To\+U\+S}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t P\+I\+N\+G\+\_\+\+Ticks\+To\+U\+S (
+\begin{DoxyParamCaption}
+\item[{uint16\+\_\+t}]{ticks}
+\end{DoxyParamCaption}
+)}}\label{ping_8h_a00efb71b23f3470676b50ec177d61f6c}
+Convert ticks to microseconds
+
+
+\begin{DoxyParams}{Parameters}
+{\em ticks} & Tick count from \hyperlink{ping_8h_aac061b5911e621338892e2eec54af47b}{P\+I\+N\+G\+\_\+\+Measure\+Ticks()} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of microseconds in the pulse 
+\end{DoxyReturn}

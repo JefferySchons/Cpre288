@@ -1,0 +1,140 @@
+\hypertarget{servo_8h}{\section{servo.\+h File Reference}
+\label{servo_8h}\index{servo.\+h@{servo.\+h}}
+}
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{servo_8h_ad7d9abaebc92bf2cd5c28c26e651eaa5}{S\+E\+R\+V\+O\+\_\+\+Set\+Blocking}(x)~\hyperlink{util_8h_a81f8b753fa3af751d39ae3ffdddb5bbd}{wait\+\_\+ms}(\hyperlink{servo_8h_ad9e8c8aaf8b4c3adfc153fb1c0e879b3}{S\+E\+R\+V\+O\+\_\+\+Set\+Non\+Blocking}(x))
+\item 
+\#define \hyperlink{servo_8h_ab6adc9ce3598ec016666ae8fecdebbf7}{S\+E\+R\+V\+O\+\_\+\+Set\+Degrees\+Non\+Blocking}(x)~\hyperlink{servo_8h_ad9e8c8aaf8b4c3adfc153fb1c0e879b3}{S\+E\+R\+V\+O\+\_\+\+Set\+Non\+Blocking}(\hyperlink{servo_8h_ab9cfaa87f5518f276dc67420141b2db3}{S\+E\+R\+V\+O\+\_\+\+Degrees\+To\+Pulse\+Len}(x))
+\item 
+\#define \hyperlink{servo_8h_a093a715a09be885b9d37378dce026040}{S\+E\+R\+V\+O\+\_\+\+Set\+Position\+Non\+Blocking}(x)~\hyperlink{servo_8h_ad9e8c8aaf8b4c3adfc153fb1c0e879b3}{S\+E\+R\+V\+O\+\_\+\+Set\+Non\+Blocking}(\hyperlink{servo_8h_a86feac72cac61b056c836763a4735e38}{S\+E\+R\+V\+O\+\_\+\+Position\+To\+Pulse\+Len}(x))
+\item 
+\#define \hyperlink{servo_8h_a3b9b6669e2d60703d8b92be8390a4e69}{S\+E\+R\+V\+O\+\_\+\+Set\+Degrees\+Blocking}(x)~\hyperlink{servo_8h_ad7d9abaebc92bf2cd5c28c26e651eaa5}{S\+E\+R\+V\+O\+\_\+\+Set\+Blocking}(\hyperlink{servo_8h_ab9cfaa87f5518f276dc67420141b2db3}{S\+E\+R\+V\+O\+\_\+\+Degrees\+To\+Pulse\+Len}(x))
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{servo_8h_a53b99db702ac29730d11d3300cdfdb81}{S\+E\+R\+V\+O\+\_\+\+On} ()
+\item 
+void \hyperlink{servo_8h_a486ee17d251dc27ae30cc29cce1c7f9e}{S\+E\+R\+V\+O\+\_\+\+Off} ()
+\item 
+uint16\+\_\+t \hyperlink{servo_8h_a86feac72cac61b056c836763a4735e38}{S\+E\+R\+V\+O\+\_\+\+Position\+To\+Pulse\+Len} (uint8\+\_\+t position)
+\item 
+uint16\+\_\+t \hyperlink{servo_8h_ab9cfaa87f5518f276dc67420141b2db3}{S\+E\+R\+V\+O\+\_\+\+Degrees\+To\+Pulse\+Len} (uint8\+\_\+t degrees)
+\item 
+uint16\+\_\+t \hyperlink{servo_8h_ad9e8c8aaf8b4c3adfc153fb1c0e879b3}{S\+E\+R\+V\+O\+\_\+\+Set\+Non\+Blocking} (uint16\+\_\+t pwm)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Jake Drahos
+\end{DoxyAuthor}
+Blocking/\+Non\+Blocking Servo A\+P\+I
+
+This A\+P\+I uses a number of conversion functions and a core set function, \hyperlink{servo_8h_ad9e8c8aaf8b4c3adfc153fb1c0e879b3}{S\+E\+R\+V\+O\+\_\+\+Set\+Non\+Blocking()}. It also contains several wrapper macros that wrap the conversion and call to the set function in a single statement. 
+
+\subsection{Macro Definition Documentation}
+\hypertarget{servo_8h_ad7d9abaebc92bf2cd5c28c26e651eaa5}{\index{servo.\+h@{servo.\+h}!S\+E\+R\+V\+O\+\_\+\+Set\+Blocking@{S\+E\+R\+V\+O\+\_\+\+Set\+Blocking}}
+\index{S\+E\+R\+V\+O\+\_\+\+Set\+Blocking@{S\+E\+R\+V\+O\+\_\+\+Set\+Blocking}!servo.\+h@{servo.\+h}}
+\subsubsection[{S\+E\+R\+V\+O\+\_\+\+Set\+Blocking}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+E\+R\+V\+O\+\_\+\+Set\+Blocking(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~{\bf wait\+\_\+ms}({\bf S\+E\+R\+V\+O\+\_\+\+Set\+Non\+Blocking}(x))}}\label{servo_8h_ad7d9abaebc92bf2cd5c28c26e651eaa5}
+Wrapper macro that blocks based on the recommended block time \hypertarget{servo_8h_a3b9b6669e2d60703d8b92be8390a4e69}{\index{servo.\+h@{servo.\+h}!S\+E\+R\+V\+O\+\_\+\+Set\+Degrees\+Blocking@{S\+E\+R\+V\+O\+\_\+\+Set\+Degrees\+Blocking}}
+\index{S\+E\+R\+V\+O\+\_\+\+Set\+Degrees\+Blocking@{S\+E\+R\+V\+O\+\_\+\+Set\+Degrees\+Blocking}!servo.\+h@{servo.\+h}}
+\subsubsection[{S\+E\+R\+V\+O\+\_\+\+Set\+Degrees\+Blocking}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+E\+R\+V\+O\+\_\+\+Set\+Degrees\+Blocking(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~{\bf S\+E\+R\+V\+O\+\_\+\+Set\+Blocking}({\bf S\+E\+R\+V\+O\+\_\+\+Degrees\+To\+Pulse\+Len}(x))}}\label{servo_8h_a3b9b6669e2d60703d8b92be8390a4e69}
+Wrapper macro that converts degrees, sets, and blocks the recommended delay time \hypertarget{servo_8h_ab6adc9ce3598ec016666ae8fecdebbf7}{\index{servo.\+h@{servo.\+h}!S\+E\+R\+V\+O\+\_\+\+Set\+Degrees\+Non\+Blocking@{S\+E\+R\+V\+O\+\_\+\+Set\+Degrees\+Non\+Blocking}}
+\index{S\+E\+R\+V\+O\+\_\+\+Set\+Degrees\+Non\+Blocking@{S\+E\+R\+V\+O\+\_\+\+Set\+Degrees\+Non\+Blocking}!servo.\+h@{servo.\+h}}
+\subsubsection[{S\+E\+R\+V\+O\+\_\+\+Set\+Degrees\+Non\+Blocking}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+E\+R\+V\+O\+\_\+\+Set\+Degrees\+Non\+Blocking(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~{\bf S\+E\+R\+V\+O\+\_\+\+Set\+Non\+Blocking}({\bf S\+E\+R\+V\+O\+\_\+\+Degrees\+To\+Pulse\+Len}(x))}}\label{servo_8h_ab6adc9ce3598ec016666ae8fecdebbf7}
+Wrapper macro that converts degrees, sets, and returns the recommended delay \hypertarget{servo_8h_a093a715a09be885b9d37378dce026040}{\index{servo.\+h@{servo.\+h}!S\+E\+R\+V\+O\+\_\+\+Set\+Position\+Non\+Blocking@{S\+E\+R\+V\+O\+\_\+\+Set\+Position\+Non\+Blocking}}
+\index{S\+E\+R\+V\+O\+\_\+\+Set\+Position\+Non\+Blocking@{S\+E\+R\+V\+O\+\_\+\+Set\+Position\+Non\+Blocking}!servo.\+h@{servo.\+h}}
+\subsubsection[{S\+E\+R\+V\+O\+\_\+\+Set\+Position\+Non\+Blocking}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+E\+R\+V\+O\+\_\+\+Set\+Position\+Non\+Blocking(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~{\bf S\+E\+R\+V\+O\+\_\+\+Set\+Non\+Blocking}({\bf S\+E\+R\+V\+O\+\_\+\+Position\+To\+Pulse\+Len}(x))}}\label{servo_8h_a093a715a09be885b9d37378dce026040}
+Wrapper macro that converts 0-\/255, sets, and returns the recommended delay 
+
+\subsection{Function Documentation}
+\hypertarget{servo_8h_ab9cfaa87f5518f276dc67420141b2db3}{\index{servo.\+h@{servo.\+h}!S\+E\+R\+V\+O\+\_\+\+Degrees\+To\+Pulse\+Len@{S\+E\+R\+V\+O\+\_\+\+Degrees\+To\+Pulse\+Len}}
+\index{S\+E\+R\+V\+O\+\_\+\+Degrees\+To\+Pulse\+Len@{S\+E\+R\+V\+O\+\_\+\+Degrees\+To\+Pulse\+Len}!servo.\+h@{servo.\+h}}
+\subsubsection[{S\+E\+R\+V\+O\+\_\+\+Degrees\+To\+Pulse\+Len}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t S\+E\+R\+V\+O\+\_\+\+Degrees\+To\+Pulse\+Len (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{degrees}
+\end{DoxyParamCaption}
+)}}\label{servo_8h_ab9cfaa87f5518f276dc67420141b2db3}
+Convert the given number of degrees to a P\+W\+M value 
+\begin{DoxyParams}{Parameters}
+{\em degrees} & 0-\/180 degrees to convert \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+P\+W\+M value for \hyperlink{servo_8h_ad9e8c8aaf8b4c3adfc153fb1c0e879b3}{S\+E\+R\+V\+O\+\_\+\+Set\+Non\+Blocking()} or \hyperlink{servo_8h_ad7d9abaebc92bf2cd5c28c26e651eaa5}{S\+E\+R\+V\+O\+\_\+\+Set\+Blocking()} 
+\end{DoxyReturn}
+\hypertarget{servo_8h_a486ee17d251dc27ae30cc29cce1c7f9e}{\index{servo.\+h@{servo.\+h}!S\+E\+R\+V\+O\+\_\+\+Off@{S\+E\+R\+V\+O\+\_\+\+Off}}
+\index{S\+E\+R\+V\+O\+\_\+\+Off@{S\+E\+R\+V\+O\+\_\+\+Off}!servo.\+h@{servo.\+h}}
+\subsubsection[{S\+E\+R\+V\+O\+\_\+\+Off}]{\setlength{\rightskip}{0pt plus 5cm}void S\+E\+R\+V\+O\+\_\+\+Off (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{servo_8h_a486ee17d251dc27ae30cc29cce1c7f9e}
+Disable servo and stop P\+W\+M output, allowing free rotation \hypertarget{servo_8h_a53b99db702ac29730d11d3300cdfdb81}{\index{servo.\+h@{servo.\+h}!S\+E\+R\+V\+O\+\_\+\+On@{S\+E\+R\+V\+O\+\_\+\+On}}
+\index{S\+E\+R\+V\+O\+\_\+\+On@{S\+E\+R\+V\+O\+\_\+\+On}!servo.\+h@{servo.\+h}}
+\subsubsection[{S\+E\+R\+V\+O\+\_\+\+On}]{\setlength{\rightskip}{0pt plus 5cm}void S\+E\+R\+V\+O\+\_\+\+On (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{servo_8h_a53b99db702ac29730d11d3300cdfdb81}
+Turn the servo control on.
+
+This resets the servo to 0 degrees and powers it on. \hypertarget{servo_8h_a86feac72cac61b056c836763a4735e38}{\index{servo.\+h@{servo.\+h}!S\+E\+R\+V\+O\+\_\+\+Position\+To\+Pulse\+Len@{S\+E\+R\+V\+O\+\_\+\+Position\+To\+Pulse\+Len}}
+\index{S\+E\+R\+V\+O\+\_\+\+Position\+To\+Pulse\+Len@{S\+E\+R\+V\+O\+\_\+\+Position\+To\+Pulse\+Len}!servo.\+h@{servo.\+h}}
+\subsubsection[{S\+E\+R\+V\+O\+\_\+\+Position\+To\+Pulse\+Len}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t S\+E\+R\+V\+O\+\_\+\+Position\+To\+Pulse\+Len (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{position}
+\end{DoxyParamCaption}
+)}}\label{servo_8h_a86feac72cac61b056c836763a4735e38}
+Convert the given absolute position to a P\+W\+M value
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & 0-\/255 value to be converted to min-\/full P\+W\+M value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+P\+W\+M value that can be given to \hyperlink{servo_8h_ad9e8c8aaf8b4c3adfc153fb1c0e879b3}{S\+E\+R\+V\+O\+\_\+\+Set\+Non\+Blocking()} or \hyperlink{servo_8h_ad7d9abaebc92bf2cd5c28c26e651eaa5}{S\+E\+R\+V\+O\+\_\+\+Set\+Blocking()} 
+\end{DoxyReturn}
+\hypertarget{servo_8h_ad9e8c8aaf8b4c3adfc153fb1c0e879b3}{\index{servo.\+h@{servo.\+h}!S\+E\+R\+V\+O\+\_\+\+Set\+Non\+Blocking@{S\+E\+R\+V\+O\+\_\+\+Set\+Non\+Blocking}}
+\index{S\+E\+R\+V\+O\+\_\+\+Set\+Non\+Blocking@{S\+E\+R\+V\+O\+\_\+\+Set\+Non\+Blocking}!servo.\+h@{servo.\+h}}
+\subsubsection[{S\+E\+R\+V\+O\+\_\+\+Set\+Non\+Blocking}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t S\+E\+R\+V\+O\+\_\+\+Set\+Non\+Blocking (
+\begin{DoxyParamCaption}
+\item[{uint16\+\_\+t}]{pwm}
+\end{DoxyParamCaption}
+)}}\label{servo_8h_ad9e8c8aaf8b4c3adfc153fb1c0e879b3}
+Set the P\+M\+W value and return recommended msec delay
+
+This function wil probably not be called directly, since the P\+W\+M value required for this function must be calculated with one of the conversion functions. It is wrapped by several macros.
+
+This function is asynchronous and returns immediately, but gives a recommended msec delay.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pwm} & Raw P\+W\+M value to set. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Recommended delay in msec. 
+\end{DoxyReturn}

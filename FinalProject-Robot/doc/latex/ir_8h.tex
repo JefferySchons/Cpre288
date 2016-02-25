@@ -1,0 +1,120 @@
+\hypertarget{ir_8h}{\section{ir.\+h File Reference}
+\label{ir_8h}\index{ir.\+h@{ir.\+h}}
+}
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+{\ttfamily \#include $<$avr/pgmspace.\+h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{ir_8h_a4db200dc51fe93e8c7b01986cde4f95c}{I\+R\+\_\+\+Get\+Dist\+Blocking}()~\hyperlink{ir_8h_a31cde834a0efc15420acbb8766dbe364}{I\+R\+\_\+\+Value\+To\+Dist}(\hyperlink{ir_8h_a47f3603c429f96a48f77b05fed02f18b}{I\+R\+\_\+\+Get\+Data\+Blocking}())
+\item 
+\#define \hyperlink{ir_8h_a34cc391289f95a44bb9a8af16e439e49}{I\+R\+\_\+\+Get\+Dist}()~\hyperlink{ir_8h_a31cde834a0efc15420acbb8766dbe364}{I\+R\+\_\+\+Value\+To\+Dist}(\hyperlink{ir_8h_aeb4a7b0af8a48c45806629488f6e05e1}{I\+R\+\_\+\+Get\+Data}())
+\item 
+\#define \hyperlink{ir_8h_aff7b1db3b69eea1ae1afeb3854934367}{L\+O\+O\+K\+U\+P\+\_\+\+T\+A\+B\+L\+E\+\_\+\+I\+N\+\_\+\+R\+O\+M}~0
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{ir_8h_a2d7c2fde163348d21171801c65f8fc05}{I\+R\+\_\+\+Initialize} ()
+\item 
+uint16\+\_\+t \hyperlink{ir_8h_aeb4a7b0af8a48c45806629488f6e05e1}{I\+R\+\_\+\+Get\+Data} ()
+\item 
+uint16\+\_\+t \hyperlink{ir_8h_a47f3603c429f96a48f77b05fed02f18b}{I\+R\+\_\+\+Get\+Data\+Blocking} ()
+\item 
+uint8\+\_\+t \hyperlink{ir_8h_ad5c1adb8e7490ca0ac101f76c448b0fa}{I\+R\+\_\+\+New\+Data} ()
+\item 
+uint16\+\_\+t \hyperlink{ir_8h_a31cde834a0efc15420acbb8766dbe364}{I\+R\+\_\+\+Value\+To\+Dist} (uint16\+\_\+t value)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Asynchronous I\+R api. \begin{DoxyAuthor}{Author}
+Jake Drahos 
+\end{DoxyAuthor}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{ir_8h_a34cc391289f95a44bb9a8af16e439e49}{\index{ir.\+h@{ir.\+h}!I\+R\+\_\+\+Get\+Dist@{I\+R\+\_\+\+Get\+Dist}}
+\index{I\+R\+\_\+\+Get\+Dist@{I\+R\+\_\+\+Get\+Dist}!ir.\+h@{ir.\+h}}
+\subsubsection[{I\+R\+\_\+\+Get\+Dist}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+R\+\_\+\+Get\+Dist(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~{\bf I\+R\+\_\+\+Value\+To\+Dist}({\bf I\+R\+\_\+\+Get\+Data}())}}\label{ir_8h_a34cc391289f95a44bb9a8af16e439e49}
+Macro that wraps \hyperlink{ir_8h_aeb4a7b0af8a48c45806629488f6e05e1}{I\+R\+\_\+\+Get\+Data()} in \hyperlink{ir_8h_a31cde834a0efc15420acbb8766dbe364}{I\+R\+\_\+\+Value\+To\+Dist()} \hypertarget{ir_8h_a4db200dc51fe93e8c7b01986cde4f95c}{\index{ir.\+h@{ir.\+h}!I\+R\+\_\+\+Get\+Dist\+Blocking@{I\+R\+\_\+\+Get\+Dist\+Blocking}}
+\index{I\+R\+\_\+\+Get\+Dist\+Blocking@{I\+R\+\_\+\+Get\+Dist\+Blocking}!ir.\+h@{ir.\+h}}
+\subsubsection[{I\+R\+\_\+\+Get\+Dist\+Blocking}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+R\+\_\+\+Get\+Dist\+Blocking(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~{\bf I\+R\+\_\+\+Value\+To\+Dist}({\bf I\+R\+\_\+\+Get\+Data\+Blocking}())}}\label{ir_8h_a4db200dc51fe93e8c7b01986cde4f95c}
+Macro that wraps \hyperlink{ir_8h_a47f3603c429f96a48f77b05fed02f18b}{I\+R\+\_\+\+Get\+Data\+Blocking()} in \hyperlink{ir_8h_a31cde834a0efc15420acbb8766dbe364}{I\+R\+\_\+\+Value\+To\+Dist()} \hypertarget{ir_8h_aff7b1db3b69eea1ae1afeb3854934367}{\index{ir.\+h@{ir.\+h}!L\+O\+O\+K\+U\+P\+\_\+\+T\+A\+B\+L\+E\+\_\+\+I\+N\+\_\+\+R\+O\+M@{L\+O\+O\+K\+U\+P\+\_\+\+T\+A\+B\+L\+E\+\_\+\+I\+N\+\_\+\+R\+O\+M}}
+\index{L\+O\+O\+K\+U\+P\+\_\+\+T\+A\+B\+L\+E\+\_\+\+I\+N\+\_\+\+R\+O\+M@{L\+O\+O\+K\+U\+P\+\_\+\+T\+A\+B\+L\+E\+\_\+\+I\+N\+\_\+\+R\+O\+M}!ir.\+h@{ir.\+h}}
+\subsubsection[{L\+O\+O\+K\+U\+P\+\_\+\+T\+A\+B\+L\+E\+\_\+\+I\+N\+\_\+\+R\+O\+M}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\+O\+O\+K\+U\+P\+\_\+\+T\+A\+B\+L\+E\+\_\+\+I\+N\+\_\+\+R\+O\+M~0}}\label{ir_8h_aff7b1db3b69eea1ae1afeb3854934367}
+Define this to 1 to put the lookup table in R\+O\+M. Requires lookup\+\_\+table.\+c If it is defined to 0, the lookup table will be put in R\+A\+M. 
+
+\subsection{Function Documentation}
+\hypertarget{ir_8h_aeb4a7b0af8a48c45806629488f6e05e1}{\index{ir.\+h@{ir.\+h}!I\+R\+\_\+\+Get\+Data@{I\+R\+\_\+\+Get\+Data}}
+\index{I\+R\+\_\+\+Get\+Data@{I\+R\+\_\+\+Get\+Data}!ir.\+h@{ir.\+h}}
+\subsubsection[{I\+R\+\_\+\+Get\+Data}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t I\+R\+\_\+\+Get\+Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{ir_8h_aeb4a7b0af8a48c45806629488f6e05e1}
+Get the most recent I\+R measurement
+
+The I\+R A\+P\+I is completely asynchronous. The A\+D\+C is continuously sampled. \hyperlink{ir_8h_aeb4a7b0af8a48c45806629488f6e05e1}{I\+R\+\_\+\+Get\+Data()} simply returns the most recent sample. \hyperlink{ir_8h_a47f3603c429f96a48f77b05fed02f18b}{I\+R\+\_\+\+Get\+Data\+Blocking()} blocks until new data is available before returning.
+
+\begin{DoxyReturn}{Returns}
+Raw A\+D\+C value of I\+R sensor 
+\end{DoxyReturn}
+\hypertarget{ir_8h_a47f3603c429f96a48f77b05fed02f18b}{\index{ir.\+h@{ir.\+h}!I\+R\+\_\+\+Get\+Data\+Blocking@{I\+R\+\_\+\+Get\+Data\+Blocking}}
+\index{I\+R\+\_\+\+Get\+Data\+Blocking@{I\+R\+\_\+\+Get\+Data\+Blocking}!ir.\+h@{ir.\+h}}
+\subsubsection[{I\+R\+\_\+\+Get\+Data\+Blocking}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t I\+R\+\_\+\+Get\+Data\+Blocking (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{ir_8h_a47f3603c429f96a48f77b05fed02f18b}
+Block until new data is available, then return it.
+
+Similar to \hyperlink{ir_8h_aeb4a7b0af8a48c45806629488f6e05e1}{I\+R\+\_\+\+Get\+Data()}, but waits for new data before returning.
+
+\begin{DoxyReturn}{Returns}
+Raw A\+D\+C value of I\+R sensor 
+\end{DoxyReturn}
+\hypertarget{ir_8h_a2d7c2fde163348d21171801c65f8fc05}{\index{ir.\+h@{ir.\+h}!I\+R\+\_\+\+Initialize@{I\+R\+\_\+\+Initialize}}
+\index{I\+R\+\_\+\+Initialize@{I\+R\+\_\+\+Initialize}!ir.\+h@{ir.\+h}}
+\subsubsection[{I\+R\+\_\+\+Initialize}]{\setlength{\rightskip}{0pt plus 5cm}void I\+R\+\_\+\+Initialize (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{ir_8h_a2d7c2fde163348d21171801c65f8fc05}
+Initialize I\+R This must be called to set up the interrupts before any other I\+R functions are called. If a R\+A\+M lookup table is being used, this function will also populate the lookup table. \hypertarget{ir_8h_ad5c1adb8e7490ca0ac101f76c448b0fa}{\index{ir.\+h@{ir.\+h}!I\+R\+\_\+\+New\+Data@{I\+R\+\_\+\+New\+Data}}
+\index{I\+R\+\_\+\+New\+Data@{I\+R\+\_\+\+New\+Data}!ir.\+h@{ir.\+h}}
+\subsubsection[{I\+R\+\_\+\+New\+Data}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t I\+R\+\_\+\+New\+Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{ir_8h_ad5c1adb8e7490ca0ac101f76c448b0fa}
+Check if new data is available
+
+\begin{DoxyReturn}{Returns}
+T\+R\+U\+E if new data is available, F\+A\+L\+S\+E if not 
+\end{DoxyReturn}
+\hypertarget{ir_8h_a31cde834a0efc15420acbb8766dbe364}{\index{ir.\+h@{ir.\+h}!I\+R\+\_\+\+Value\+To\+Dist@{I\+R\+\_\+\+Value\+To\+Dist}}
+\index{I\+R\+\_\+\+Value\+To\+Dist@{I\+R\+\_\+\+Value\+To\+Dist}!ir.\+h@{ir.\+h}}
+\subsubsection[{I\+R\+\_\+\+Value\+To\+Dist}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t I\+R\+\_\+\+Value\+To\+Dist (
+\begin{DoxyParamCaption}
+\item[{uint16\+\_\+t}]{value}
+\end{DoxyParamCaption}
+)}}\label{ir_8h_a31cde834a0efc15420acbb8766dbe364}
+Convert an I\+R value to distance
+
+Uses the lookup table (R\+A\+M or R\+O\+M) to convert an I\+R value from \hyperlink{ir_8h_aeb4a7b0af8a48c45806629488f6e05e1}{I\+R\+\_\+\+Get\+Data()} to millimeters. 
+\begin{DoxyParams}{Parameters}
+{\em value} & A\+D\+C Value from \hyperlink{ir_8h_aeb4a7b0af8a48c45806629488f6e05e1}{I\+R\+\_\+\+Get\+Data()} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Distance in millimeters 
+\end{DoxyReturn}

@@ -1,0 +1,101 @@
+\hypertarget{obstacle__detection_8h}{\section{obstacle\+\_\+detection.\+h File Reference}
+\label{obstacle__detection_8h}\index{obstacle\+\_\+detection.\+h@{obstacle\+\_\+detection.\+h}}
+}
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structobstacle__t}{obstacle\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{obstacle__detection_8h_a8ed7b6a1f199b6d2af90e642918cf271}{D\+E\+G\+\_\+\+T\+O\+\_\+\+R\+A\+D}(x)~((x / 360.\+0f) $\ast$ 6.\+2820f)
+\item 
+\#define \hyperlink{obstacle__detection_8h_a7717842c81eff83643806921e10dda99}{N\+O\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+O\+B\+J\+E\+C\+T}~0xff
+\item 
+\#define \hyperlink{obstacle__detection_8h_a47024204d8ea2cdcc3154f63677b3832}{S\+T\+E\+P\+\_\+\+S\+I\+Z\+E}~1
+\item 
+\#define \hyperlink{obstacle__detection_8h_ac6fe3e788d8aa38909a1076d3b6cfd5d}{D\+E\+G\+R\+E\+E\+S\+\_\+\+I\+N\+\_\+\+F\+R\+O\+N\+T}~180
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \hyperlink{obstacle__detection_8h_a880675e8631d296c08647487ead9b0c1}{O\+B\+S\+T\+A\+C\+L\+E\+\_\+\+Sweep\+And\+Detect} (\hyperlink{structobstacle__t}{obstacle\+\_\+t} $\ast$obstacles, uint8\+\_\+t max\+\_\+obstacles, uint8\+\_\+t max\+\_\+dist)
+\item 
+int8\+\_\+t \hyperlink{obstacle__detection_8h_a9ddf5544d80cb62fa20b8e6038791adf}{O\+B\+S\+T\+A\+C\+L\+E\+\_\+\+Find\+Smallest} (\hyperlink{structobstacle__t}{obstacle\+\_\+t} $\ast$obastacles, uint8\+\_\+t num\+\_\+obstacles)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Jake Drahos
+\end{DoxyAuthor}
+Sensor sweep and obstacle detection A\+P\+I. 
+
+\subsection{Macro Definition Documentation}
+\hypertarget{obstacle__detection_8h_a8ed7b6a1f199b6d2af90e642918cf271}{\index{obstacle\+\_\+detection.\+h@{obstacle\+\_\+detection.\+h}!D\+E\+G\+\_\+\+T\+O\+\_\+\+R\+A\+D@{D\+E\+G\+\_\+\+T\+O\+\_\+\+R\+A\+D}}
+\index{D\+E\+G\+\_\+\+T\+O\+\_\+\+R\+A\+D@{D\+E\+G\+\_\+\+T\+O\+\_\+\+R\+A\+D}!obstacle\+\_\+detection.\+h@{obstacle\+\_\+detection.\+h}}
+\subsubsection[{D\+E\+G\+\_\+\+T\+O\+\_\+\+R\+A\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+E\+G\+\_\+\+T\+O\+\_\+\+R\+A\+D(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~((x / 360.\+0f) $\ast$ 6.\+2820f)}}\label{obstacle__detection_8h_a8ed7b6a1f199b6d2af90e642918cf271}
+Convert degrees to radians for trig functions \hypertarget{obstacle__detection_8h_ac6fe3e788d8aa38909a1076d3b6cfd5d}{\index{obstacle\+\_\+detection.\+h@{obstacle\+\_\+detection.\+h}!D\+E\+G\+R\+E\+E\+S\+\_\+\+I\+N\+\_\+\+F\+R\+O\+N\+T@{D\+E\+G\+R\+E\+E\+S\+\_\+\+I\+N\+\_\+\+F\+R\+O\+N\+T}}
+\index{D\+E\+G\+R\+E\+E\+S\+\_\+\+I\+N\+\_\+\+F\+R\+O\+N\+T@{D\+E\+G\+R\+E\+E\+S\+\_\+\+I\+N\+\_\+\+F\+R\+O\+N\+T}!obstacle\+\_\+detection.\+h@{obstacle\+\_\+detection.\+h}}
+\subsubsection[{D\+E\+G\+R\+E\+E\+S\+\_\+\+I\+N\+\_\+\+F\+R\+O\+N\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+E\+G\+R\+E\+E\+S\+\_\+\+I\+N\+\_\+\+F\+R\+O\+N\+T~180}}\label{obstacle__detection_8h_ac6fe3e788d8aa38909a1076d3b6cfd5d}
+Configuration option. F\+O\+V in degrees \hypertarget{obstacle__detection_8h_a7717842c81eff83643806921e10dda99}{\index{obstacle\+\_\+detection.\+h@{obstacle\+\_\+detection.\+h}!N\+O\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+O\+B\+J\+E\+C\+T@{N\+O\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+O\+B\+J\+E\+C\+T}}
+\index{N\+O\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+O\+B\+J\+E\+C\+T@{N\+O\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+O\+B\+J\+E\+C\+T}!obstacle\+\_\+detection.\+h@{obstacle\+\_\+detection.\+h}}
+\subsubsection[{N\+O\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+O\+B\+J\+E\+C\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+O\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+O\+B\+J\+E\+C\+T~0xff}}\label{obstacle__detection_8h_a7717842c81eff83643806921e10dda99}
+Sweep state meaning that no object is currently seen. \hypertarget{obstacle__detection_8h_a47024204d8ea2cdcc3154f63677b3832}{\index{obstacle\+\_\+detection.\+h@{obstacle\+\_\+detection.\+h}!S\+T\+E\+P\+\_\+\+S\+I\+Z\+E@{S\+T\+E\+P\+\_\+\+S\+I\+Z\+E}}
+\index{S\+T\+E\+P\+\_\+\+S\+I\+Z\+E@{S\+T\+E\+P\+\_\+\+S\+I\+Z\+E}!obstacle\+\_\+detection.\+h@{obstacle\+\_\+detection.\+h}}
+\subsubsection[{S\+T\+E\+P\+\_\+\+S\+I\+Z\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+T\+E\+P\+\_\+\+S\+I\+Z\+E~1}}\label{obstacle__detection_8h_a47024204d8ea2cdcc3154f63677b3832}
+Configuration option. Resolution in degrees 
+
+\subsection{Function Documentation}
+\hypertarget{obstacle__detection_8h_a9ddf5544d80cb62fa20b8e6038791adf}{\index{obstacle\+\_\+detection.\+h@{obstacle\+\_\+detection.\+h}!O\+B\+S\+T\+A\+C\+L\+E\+\_\+\+Find\+Smallest@{O\+B\+S\+T\+A\+C\+L\+E\+\_\+\+Find\+Smallest}}
+\index{O\+B\+S\+T\+A\+C\+L\+E\+\_\+\+Find\+Smallest@{O\+B\+S\+T\+A\+C\+L\+E\+\_\+\+Find\+Smallest}!obstacle\+\_\+detection.\+h@{obstacle\+\_\+detection.\+h}}
+\subsubsection[{O\+B\+S\+T\+A\+C\+L\+E\+\_\+\+Find\+Smallest}]{\setlength{\rightskip}{0pt plus 5cm}int8\+\_\+t O\+B\+S\+T\+A\+C\+L\+E\+\_\+\+Find\+Smallest (
+\begin{DoxyParamCaption}
+\item[{{\bf obstacle\+\_\+t} $\ast$}]{obastacles, }
+\item[{uint8\+\_\+t}]{num\+\_\+obstacles}
+\end{DoxyParamCaption}
+)}}\label{obstacle__detection_8h_a9ddf5544d80cb62fa20b8e6038791adf}
+Find the smallest obstacle in the array
+
+
+\begin{DoxyParams}{Parameters}
+{\em obstacles} & Array to search \\
+\hline
+{\em num\+\_\+obstacles} & Size of the array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Index of the smallest obstacle 
+\end{DoxyReturn}
+\hypertarget{obstacle__detection_8h_a880675e8631d296c08647487ead9b0c1}{\index{obstacle\+\_\+detection.\+h@{obstacle\+\_\+detection.\+h}!O\+B\+S\+T\+A\+C\+L\+E\+\_\+\+Sweep\+And\+Detect@{O\+B\+S\+T\+A\+C\+L\+E\+\_\+\+Sweep\+And\+Detect}}
+\index{O\+B\+S\+T\+A\+C\+L\+E\+\_\+\+Sweep\+And\+Detect@{O\+B\+S\+T\+A\+C\+L\+E\+\_\+\+Sweep\+And\+Detect}!obstacle\+\_\+detection.\+h@{obstacle\+\_\+detection.\+h}}
+\subsubsection[{O\+B\+S\+T\+A\+C\+L\+E\+\_\+\+Sweep\+And\+Detect}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t O\+B\+S\+T\+A\+C\+L\+E\+\_\+\+Sweep\+And\+Detect (
+\begin{DoxyParamCaption}
+\item[{{\bf obstacle\+\_\+t} $\ast$}]{obstacles, }
+\item[{uint8\+\_\+t}]{max\+\_\+obstacles, }
+\item[{uint8\+\_\+t}]{max\+\_\+dist}
+\end{DoxyParamCaption}
+)}}\label{obstacle__detection_8h_a880675e8631d296c08647487ead9b0c1}
+Perform a sweep with the sensors, then create an array of all found obstacles.
+
+This function will take a while to perform the sweep, then populate the given obstacles array with the detected obstacles. See the obstacl\+\_\+t struct.
+
+
+\begin{DoxyParams}{Parameters}
+{\em obstacles} & Array to populate after sweep \\
+\hline
+{\em max\+\_\+obstacles} & Maximum number of obstacles the array can hold \\
+\hline
+{\em max\+\_\+dist} & Ignore obstacles beyond max\+\_\+dist. This allows us to see obstacles against a backdrop \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of obstacles found 
+\end{DoxyReturn}

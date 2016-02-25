@@ -1,0 +1,122 @@
+\hypertarget{movement_8h}{\section{movement.\+h File Reference}
+\label{movement_8h}\index{movement.\+h@{movement.\+h}}
+}
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}open\+\_\+interface.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{movement_8h_a8e1181dd76ae3ecd02b5de737bbfb16a}{T\+U\+R\+N\+\_\+\+T\+R\+I\+M}~0
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint16\+\_\+t \hyperlink{movement_8h_a87af61f0ea16ead05c13e0a051cc4716}{M\+O\+V\+E\+\_\+forward} (\hyperlink{structoi__t}{oi\+\_\+t} $\ast$sensor\+\_\+data, uint16\+\_\+t distance)
+\item 
+uint16\+\_\+t \hyperlink{movement_8h_a174d144f1916326a4661ce5a480293d4}{M\+O\+V\+E\+\_\+backward} (\hyperlink{structoi__t}{oi\+\_\+t} $\ast$sensor\+\_\+data, uint16\+\_\+t distance)
+\item 
+uint16\+\_\+t \hyperlink{movement_8h_a18e5f2682c47a1d97e6921d72d2eda6d}{M\+O\+V\+E\+\_\+turn\+\_\+left} (\hyperlink{structoi__t}{oi\+\_\+t} $\ast$sensor\+\_\+data, uint16\+\_\+t degrees)
+\item 
+uint16\+\_\+t \hyperlink{movement_8h_aea51cfa4bb907e20bfc1e12e144073b2}{M\+O\+V\+E\+\_\+turn\+\_\+right} (\hyperlink{structoi__t}{oi\+\_\+t} $\ast$sensor\+\_\+data, uint16\+\_\+t degrees)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Jake Drahos
+\end{DoxyAuthor}
+Simple interface to movement.
+
+Each M\+O\+V\+E\+\_\+ function will cause the robot to move the specified distance or turn the specified angle. Several sensor events can cause the robot to abort the movement. For example, a bumper hit will abort the movement.
+
+Each command returns the distace actually moved. It can be determined whether or not the move was aborted by comparing this distance with the requested distance. If the full distance was not moved, check the current sensor state to see which sensor triggered the abort.
+
+Each command must be passed an already initialized \hyperlink{structoi__t}{oi\+\_\+t} struct pointer. Initialize this before using these functions. 
+
+\subsection{Macro Definition Documentation}
+\hypertarget{movement_8h_a8e1181dd76ae3ecd02b5de737bbfb16a}{\index{movement.\+h@{movement.\+h}!T\+U\+R\+N\+\_\+\+T\+R\+I\+M@{T\+U\+R\+N\+\_\+\+T\+R\+I\+M}}
+\index{T\+U\+R\+N\+\_\+\+T\+R\+I\+M@{T\+U\+R\+N\+\_\+\+T\+R\+I\+M}!movement.\+h@{movement.\+h}}
+\subsubsection[{T\+U\+R\+N\+\_\+\+T\+R\+I\+M}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+U\+R\+N\+\_\+\+T\+R\+I\+M~0}}\label{movement_8h_a8e1181dd76ae3ecd02b5de737bbfb16a}
+Subtracted from each turn. Can be used to tweak the distance to get an exact 90 degree turn. Not currently used 
+
+\subsection{Function Documentation}
+\hypertarget{movement_8h_a174d144f1916326a4661ce5a480293d4}{\index{movement.\+h@{movement.\+h}!M\+O\+V\+E\+\_\+backward@{M\+O\+V\+E\+\_\+backward}}
+\index{M\+O\+V\+E\+\_\+backward@{M\+O\+V\+E\+\_\+backward}!movement.\+h@{movement.\+h}}
+\subsubsection[{M\+O\+V\+E\+\_\+backward}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t M\+O\+V\+E\+\_\+backward (
+\begin{DoxyParamCaption}
+\item[{{\bf oi\+\_\+t} $\ast$}]{sensor\+\_\+data, }
+\item[{uint16\+\_\+t}]{distance}
+\end{DoxyParamCaption}
+)}}\label{movement_8h_a174d144f1916326a4661ce5a480293d4}
+Move backward up to distance millimeters.
+
+
+\begin{DoxyParams}{Parameters}
+{\em distance} & Millimeters to try to move \\
+\hline
+{\em sensor\+\_\+data} & Initialized \hyperlink{structoi__t}{oi\+\_\+t} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The distance, in millimeters, actually moved. 
+\end{DoxyReturn}
+\hypertarget{movement_8h_a87af61f0ea16ead05c13e0a051cc4716}{\index{movement.\+h@{movement.\+h}!M\+O\+V\+E\+\_\+forward@{M\+O\+V\+E\+\_\+forward}}
+\index{M\+O\+V\+E\+\_\+forward@{M\+O\+V\+E\+\_\+forward}!movement.\+h@{movement.\+h}}
+\subsubsection[{M\+O\+V\+E\+\_\+forward}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t M\+O\+V\+E\+\_\+forward (
+\begin{DoxyParamCaption}
+\item[{{\bf oi\+\_\+t} $\ast$}]{sensor\+\_\+data, }
+\item[{uint16\+\_\+t}]{distance}
+\end{DoxyParamCaption}
+)}}\label{movement_8h_a87af61f0ea16ead05c13e0a051cc4716}
+Move forward up to distance millimeters.
+
+
+\begin{DoxyParams}{Parameters}
+{\em distance} & Millimeters to try to move \\
+\hline
+{\em sensor\+\_\+data} & Initialized \hyperlink{structoi__t}{oi\+\_\+t} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The distance, in millimeters, actually moved. 
+\end{DoxyReturn}
+\hypertarget{movement_8h_a18e5f2682c47a1d97e6921d72d2eda6d}{\index{movement.\+h@{movement.\+h}!M\+O\+V\+E\+\_\+turn\+\_\+left@{M\+O\+V\+E\+\_\+turn\+\_\+left}}
+\index{M\+O\+V\+E\+\_\+turn\+\_\+left@{M\+O\+V\+E\+\_\+turn\+\_\+left}!movement.\+h@{movement.\+h}}
+\subsubsection[{M\+O\+V\+E\+\_\+turn\+\_\+left}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t M\+O\+V\+E\+\_\+turn\+\_\+left (
+\begin{DoxyParamCaption}
+\item[{{\bf oi\+\_\+t} $\ast$}]{sensor\+\_\+data, }
+\item[{uint16\+\_\+t}]{degrees}
+\end{DoxyParamCaption}
+)}}\label{movement_8h_a18e5f2682c47a1d97e6921d72d2eda6d}
+Turn left (counterclockwise) up to the specified angle.
+
+
+\begin{DoxyParams}{Parameters}
+{\em degrees} & Degrees to attempt to turn \\
+\hline
+{\em sensor\+\_\+data} & Initialized \hyperlink{structoi__t}{oi\+\_\+t} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Angle actually rotated 
+\end{DoxyReturn}
+\hypertarget{movement_8h_aea51cfa4bb907e20bfc1e12e144073b2}{\index{movement.\+h@{movement.\+h}!M\+O\+V\+E\+\_\+turn\+\_\+right@{M\+O\+V\+E\+\_\+turn\+\_\+right}}
+\index{M\+O\+V\+E\+\_\+turn\+\_\+right@{M\+O\+V\+E\+\_\+turn\+\_\+right}!movement.\+h@{movement.\+h}}
+\subsubsection[{M\+O\+V\+E\+\_\+turn\+\_\+right}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t M\+O\+V\+E\+\_\+turn\+\_\+right (
+\begin{DoxyParamCaption}
+\item[{{\bf oi\+\_\+t} $\ast$}]{sensor\+\_\+data, }
+\item[{uint16\+\_\+t}]{degrees}
+\end{DoxyParamCaption}
+)}}\label{movement_8h_aea51cfa4bb907e20bfc1e12e144073b2}
+Turn right (clockwise) up to the specified angle.
+
+
+\begin{DoxyParams}{Parameters}
+{\em degrees} & Degrees to attempt to turn \\
+\hline
+{\em sensor\+\_\+data} & Initialized \hyperlink{structoi__t}{oi\+\_\+t} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Angle actually rotated 
+\end{DoxyReturn}

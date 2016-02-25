@@ -1,0 +1,15 @@
+# Virtualenv
+bin/
+build/
+local/
+include/
+lib/
+
+# Python
+*.pyc
+
+# Pip
+pip-selfcheck.json
+
+*.db
+PyRobot

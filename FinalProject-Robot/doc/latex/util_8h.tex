@@ -1,0 +1,49 @@
+\hypertarget{util_8h}{\section{util.\+h File Reference}
+\label{util_8h}\index{util.\+h@{util.\+h}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{util_8h_a81f8b753fa3af751d39ae3ffdddb5bbd}{void \hyperlink{util_8h_a81f8b753fa3af751d39ae3ffdddb5bbd}{wait\+\_\+ms} (unsigned int time\+\_\+val)}\label{util_8h_a81f8b753fa3af751d39ae3ffdddb5bbd}
+
+\begin{DoxyCompactList}\small\item\em Blocks for a specified number of milliseconds. \end{DoxyCompactList}\item 
+\hypertarget{util_8h_a0f93cf294588bd654e61dc362c7517a9}{void \hyperlink{util_8h_a0f93cf294588bd654e61dc362c7517a9}{shaft\+\_\+encoder\+\_\+init} (void)}\label{util_8h_a0f93cf294588bd654e61dc362c7517a9}
+
+\begin{DoxyCompactList}\small\item\em Shaft encoder initialization. \end{DoxyCompactList}\item 
+\hypertarget{util_8h_a527fdc8338d36f8464eb18cc840f95bb}{signed char \hyperlink{util_8h_a527fdc8338d36f8464eb18cc840f95bb}{read\+\_\+shaft\+\_\+encoder} (void)}\label{util_8h_a527fdc8338d36f8464eb18cc840f95bb}
+
+\begin{DoxyCompactList}\small\item\em Shaft encoder read function. \end{DoxyCompactList}\item 
+\hypertarget{util_8h_a4808efef61f73d6624f055ede091a83d}{void \hyperlink{util_8h_a4808efef61f73d6624f055ede091a83d}{stepper\+\_\+init} (void)}\label{util_8h_a4808efef61f73d6624f055ede091a83d}
+
+\begin{DoxyCompactList}\small\item\em Initialize Stepper Motor. \end{DoxyCompactList}\item 
+\hypertarget{util_8h_a9ce12f4e9ee54399eed7c0adde445114}{void \hyperlink{util_8h_a9ce12f4e9ee54399eed7c0adde445114}{move\+\_\+stepper\+\_\+motor\+\_\+by\+\_\+step} (int num\+\_\+steps, int direction)}\label{util_8h_a9ce12f4e9ee54399eed7c0adde445114}
+
+\begin{DoxyCompactList}\small\item\em Stepper motor move function. \end{DoxyCompactList}\item 
+\hypertarget{util_8h_aae8b6fe63d14bdb55a6c985eb14f74fb}{void \hyperlink{util_8h_aae8b6fe63d14bdb55a6c985eb14f74fb}{init\+\_\+push\+\_\+buttons} (void)}\label{util_8h_aae8b6fe63d14bdb55a6c985eb14f74fb}
+
+\begin{DoxyCompactList}\small\item\em Initialize P\+O\+R\+T\+C, which is used by the push buttons. \end{DoxyCompactList}\item 
+unsigned char \hyperlink{util_8h_aac208f5e0fe55063bb811517d52b23c5}{read\+\_\+push\+\_\+buttons} (void)
+\begin{DoxyCompactList}\small\item\em Return the position of button being pushed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+some bloke 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\hypertarget{util_8h_aac208f5e0fe55063bb811517d52b23c5}{\index{util.\+h@{util.\+h}!read\+\_\+push\+\_\+buttons@{read\+\_\+push\+\_\+buttons}}
+\index{read\+\_\+push\+\_\+buttons@{read\+\_\+push\+\_\+buttons}!util.\+h@{util.\+h}}
+\subsubsection[{read\+\_\+push\+\_\+buttons}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char read\+\_\+push\+\_\+buttons (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{util_8h_aac208f5e0fe55063bb811517d52b23c5}
+
+
+Return the position of button being pushed. 
+
+Return the position of button being pushed. \begin{DoxyReturn}{Returns}
+the position of the button being pushed. A 1 is the rightmost button. 0 indicates no button being pressed 
+\end{DoxyReturn}

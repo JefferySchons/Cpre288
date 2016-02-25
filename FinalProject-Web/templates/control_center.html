@@ -1,0 +1,289 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container theme-showcase" role="main">
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="alert alert-danger" role="alert" id="status_div">
+        <strong>Error!</strong> This page requires javascript.
+    </div>
+
+    <div class="page-header">
+        <h1>Controls</h1>
+    </div>
+    <form class="bs-example bs-example-form" method="post">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="input-group">
+                    <input id="move_distance" type="text" placeholder="200" class="form-control" aria-label="...">
+                    <div class="input-group-btn">
+                        <button id="move_forward_button" type="button" class="btn btn-default">Forward</button>
+                        <button id="move_reverse_button" type="button" class="btn btn-default">Reverse</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="input-group">
+                    <input id="rotate_degrees" type="text" placeholder="90" class="form-control" aria-label="...">
+                    <div class="input-group-btn">
+                        <button id="rotate_counterclockwise_button" type="button" class="btn btn-default">CounterCW</button>
+                        <button id="rotate_clockwise_button" type="button" class="btn btn-default">Clockwise</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="input-group">
+                    <input id="scan_max_distance" type="text" placeholder="100" class="form-control" aria-label="...">
+                    <div class="input-group-btn">
+                        <button id="scan_button" type="button" class="btn btn-primary">Scan</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <button id="poll_sensors" type="button" class="btn btn-primary">Sensors</button>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        Music <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a id="song1" href="#">Mario Fail</a></li>
+                        <li><a id="song2" href="#">Song 2</a></li>
+                        <li><a id="song3" href="#">Song 3</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="page-header">
+        <h1>Data</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <table id="obstacle_table" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Angle</th>
+                        <th>Distance (cm)</th>
+                        <th>Width (cm)</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+        <div id="outer_grid">
+            <div id="grid" class="col-md-3">
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script>
+    /* https://jsfiddle.net/h2yJn/66/ */
+    //grid width and height
+    var bw = 400;
+    var bh = 400;
+    //padding around grid
+    var p = 20;
+    //size of canvas
+    var cw = bw + (p*2) + 1;
+    var ch = bh + (p*2) + 1;
+
+    var canvas = $('<canvas/>').attr({width: cw, height: ch}).appendTo('#grid');
+
+    var context = canvas.get(0).getContext("2d");
+
+    function drawBoard(range){
+        /* Crazy hack to properly clear canvas */
+        var grid = document.getElementById("grid");
+        grid.parentNode.removeChild(grid);
+        var outer = document.getElementById("outer_grid");
+        var newdiv = document.createElement('grid');
+        newdiv.setAttribute('id', "grid");
+        outer.appendChild(newdiv);
+
+        canvas = $('<canvas/>').attr({width: cw, height: ch}).appendTo('#grid');
+        context = canvas.get(0).getContext("2d");
+
+        context.clearRect(0,0, cw, ch);
+        for (var x = 0; x <= bw; x += 40) {
+            context.moveTo(0.5 + x + p, p);
+            context.lineTo(0.5 + x + p, bh + p);
+        }
+
+        for (var x = 0; x <= bh; x += 40) {
+            context.moveTo(p, 0.5 + x + p);
+            context.lineTo(bw + p, 0.5 + x + p);
+        }
+        context.clearRect(0,0, cw, ch);
+        context.strokeStyle = "black";
+        context.stroke();
+        context.arc(p + bw / 2, bh + p, 20, 0, 2 * Math.PI);
+        context.fillStyle = "green";
+        context.fill()
+    }
+
+    drawBoard(100);
+
+    /* */
+
+    function drawObstacle(angle, distance, size) {
+        var x = distance * Math.cos(angle * Math.PI / 180);
+        var y = distance * Math.sin(angle * Math.PI / 180);
+        context.beginPath();
+        context.arc(2 * x + p + bw / 2, bh - 2 * y + p, size, 0, 2 * Math.PI);
+        context.fillStyle = "red";
+        context.fill();
+    }
+
+    var req;
+    function getStatus() {
+        req = new XMLHttpRequest();
+        req.open('GET', 'api/getstatus', true);
+        req.onreadystatechange = ClientSideUpdate;
+        req.send();
+    }
+
+    function ClientSideUpdate() {
+        var result;
+
+        if (req.readyState == 4) {
+            result = req.responseText;
+
+            var statuses = JSON.parse(result)["statuses"];
+            var scan_results = JSON.parse(result)["scan_results"];
+
+            var scan = false;
+
+            if (statuses != null) {
+                var status_length = statuses.length;
+                var status_div = document.getElementById("status_div");
+                status_div.style.visibility="visible";
+                for (key in statuses) {
+                    if (statuses[key].type == 'status') {
+                        if (statuses[key].code == 0) {
+                            status_div.setAttribute('class', "alert alert-success");
+                            status_div.innerHTML = "<strong>Success!</strong> " + statuses[key].result + ".";
+                        }
+                        else {
+                            status_div.setAttribute('class', "alert alert-danger");
+                            status_div.innerHTML = "<strong>Aborted!</strong> " + statuses[key].string + ". " + statuses[key].result + ".";
+                        }
+                    } else if (statuses[key].type == 'scan_result') {
+                        if  (statuses[key].size >= 2) {
+                            var table = document.getElementById("obstacle_table").tBodies[0];
+                            var status_div = document.getElementById("status_div");
+                            status_div.style.visibility="visible";
+                            status_div.setAttribute('class', "alert alert-info");
+                            status_div.innerHTML = "<strong>Done!</strong> Scan found " + status_length + " obstacles.";
+                            var row = table.insertRow(-1);
+                            var c1 = row.insertCell(0);
+                            var c2 = row.insertCell(1);
+                            var c3 = row.insertCell(2);
+                            c1.innerHTML = statuses[key].angle;
+                            c2.innerHTML = statuses[key].distance;
+                            c3.innerHTML = statuses[key].size;
+                            drawObstacle(statuses[key].angle, statuses[key].distance, statuses[key].size);
+                        } else {
+                            status_length--;
+                        }
+                    } else if (statuses[key].type == 'sensor_value') {
+                        var choices = [ "Left", "Front left", "Front right", "Right"];
+                        var table = document.getElementById("obstacle_table").tBodies[0];
+                        var row = table.insertRow(-1);
+                        var c1 = row.insertCell(0);
+                        var c2 = row.insertCell(1);
+                        var c3 = row.insertCell(2);
+                        c1.innerHTML = choices[statuses[key].sensor];
+                        c2.innerHTML = statuses[key].value;
+                        c3.innerHTML = "";
+
+                    }
+                }
+            }
+        }
+    }
+
+    function SendMoveForward() {
+        var do_move = new XMLHttpRequest();
+        var params = "distance=" + document.getElementById("move_distance").value;
+        do_move.open('POST', 'api/moveforward');
+        do_move.send(params);
+    }
+
+    function SendMoveReverse() {
+        var do_move = new XMLHttpRequest();
+        var params = "distance=" + document.getElementById("move_distance").value;
+        do_move.open('POST', 'api/movereverse');
+        do_move.send(params);
+    }
+
+    function SendRotateClockwise() {
+        var do_move = new XMLHttpRequest();
+        var params = "degrees=" + document.getElementById("rotate_degrees").value;
+        do_move.open('POST', 'api/rotateclockwise');
+        do_move.send(params);
+    }
+
+    function SendRotateCounterclockwise() {
+        var do_move = new XMLHttpRequest();
+        var params = "degrees=" + document.getElementById("rotate_degrees").value;
+        do_move.open('POST', 'api/rotatecounterclockwise');
+        do_move.send(params);
+    }
+
+    function SendScan() {
+        var do_move = new XMLHttpRequest();
+        var value = document.getElementById("scan_max_distance").value;
+        value = value ? value : 100;
+        var params = "max_distance=" + value;
+        do_move.open('POST', 'api/sendscan');
+        do_move.send(params);
+        drawBoard(value);
+        $("tbody").html("");
+    }
+
+    function SendMusic0() {
+        var do_move = new XMLHttpRequest();
+        do_move.open('POST', 'api/playmusic/0');
+        do_move.send();
+    }
+
+    function SendMusic1() {
+        var do_move = new XMLHttpRequest();
+        do_move.open('POST', 'api/playmusic/1');
+        do_move.send();
+    }
+
+    function SendMusic2() {
+        var do_move = new XMLHttpRequest();
+        do_move.open('POST', 'api/playmusic/2');
+        do_move.send();
+    }
+
+    function PollSensors() {
+        var do_move = new XMLHttpRequest();
+        do_move.open('POST', 'api/pollsensors');
+        do_move.send();
+        $("tbody").html("");
+    }
+
+    window.onload = function() {
+        document.getElementById("status_div").style.visibility = "hidden";
+        document.getElementById("move_forward_button").addEventListener('click', SendMoveForward);
+        document.getElementById("move_reverse_button").addEventListener('click', SendMoveReverse);
+        document.getElementById("rotate_clockwise_button").addEventListener('click', SendRotateClockwise);
+        document.getElementById("rotate_counterclockwise_button").addEventListener('click', SendRotateCounterclockwise);
+        document.getElementById("scan_button").addEventListener('click', SendScan);
+        document.getElementById("song1").addEventListener('click', SendMusic0);
+        document.getElementById("song2").addEventListener('click', SendMusic1);
+        document.getElementById("song3").addEventListener('click', SendMusic2);
+        document.getElementById("poll_sensors").addEventListener('click', PollSensors);
+    };
+
+    getStatus();
+    setInterval(getStatus, 1000);
+</script>
+{% endblock %}

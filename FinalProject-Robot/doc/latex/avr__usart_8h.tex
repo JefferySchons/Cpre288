@@ -1,0 +1,160 @@
+\hypertarget{avr__usart_8h}{\section{avr\+\_\+usart.\+h File Reference}
+\label{avr__usart_8h}\index{avr\+\_\+usart.\+h@{avr\+\_\+usart.\+h}}
+}
+{\ttfamily \#include \char`\"{}string.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{avr__usart_8h_ae56fdb340b23940f7a64ed2e37c1774a}{S\+T\+A\+T\+U\+S\+\_\+\+S\+U\+C\+C\+E\+S\+S}~0
+\item 
+\#define \hyperlink{avr__usart_8h_a638bba3e89b0fc63df78cbb3b867eb1d}{S\+T\+A\+T\+U\+S\+\_\+\+R\+I\+N\+G\+B\+U\+F\+F\+E\+R\+\_\+\+E\+M\+P\+T\+Y}~80
+\item 
+\#define \hyperlink{avr__usart_8h_a80d21426775267b48a2296937441977a}{U\+S\+A\+R\+T\+\_\+\+Puts}(str)~\hyperlink{avr__usart_8h_a74f0b39749de21678c191715fa5d8001}{U\+S\+A\+R\+T\+\_\+\+Print}(str, strlen(str));
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef uint8\+\_\+t \hyperlink{avr__usart_8h_a1156a503f1204bde06af09e66775eac3}{status\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{avr__usart_8h_a6b58d66648365d015ef71a0e2de7e0d2}{\hyperlink{avr__usart_8h_a1156a503f1204bde06af09e66775eac3}{status\+\_\+t} {\bfseries U\+S\+A\+R\+T\+\_\+\+Initialize} ()}\label{avr__usart_8h_a6b58d66648365d015ef71a0e2de7e0d2}
+
+\item 
+\hyperlink{avr__usart_8h_a1156a503f1204bde06af09e66775eac3}{status\+\_\+t} \hyperlink{avr__usart_8h_a13f8b2b31a4c1ba192b84dae98cb8cb4}{U\+S\+A\+R\+T\+\_\+\+Putc} (char c)
+\item 
+\hyperlink{avr__usart_8h_a1156a503f1204bde06af09e66775eac3}{status\+\_\+t} \hyperlink{avr__usart_8h_aa8ed209a5e830bec26e77d9f084302b1}{U\+S\+A\+R\+T\+\_\+\+Getc} (char $\ast$c)
+\item 
+int16\+\_\+t \hyperlink{avr__usart_8h_a54bfd92d06f7f0e5a4ada1fd1d6455a3}{U\+S\+A\+R\+T\+\_\+\+Gets} (char $\ast$buffer, uint16\+\_\+t maxlen)
+\item 
+int16\+\_\+t \hyperlink{avr__usart_8h_a74f0b39749de21678c191715fa5d8001}{U\+S\+A\+R\+T\+\_\+\+Print} (char $\ast$str, uint16\+\_\+t len)
+\item 
+int16\+\_\+t \hyperlink{avr__usart_8h_a506f0255dea4e57847a5bbfe6fecd19d}{U\+S\+A\+R\+T\+\_\+\+Printf} (const char $\ast$fmt,...)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Jake Drahos This contains the U\+S\+A\+R\+T functions. The U\+S\+A\+R\+T driver is completely asynchronous. User-\/space functions only manipulate a collection of ringbuffers. The ringbuffers are only accessed single-\/ended by either the I\+S\+R or userspace, so they are interrupt-\/safe. Because it is asynchronous, it is F\+A\+S\+T. 
+\end{DoxyAuthor}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{avr__usart_8h_a638bba3e89b0fc63df78cbb3b867eb1d}{\index{avr\+\_\+usart.\+h@{avr\+\_\+usart.\+h}!S\+T\+A\+T\+U\+S\+\_\+\+R\+I\+N\+G\+B\+U\+F\+F\+E\+R\+\_\+\+E\+M\+P\+T\+Y@{S\+T\+A\+T\+U\+S\+\_\+\+R\+I\+N\+G\+B\+U\+F\+F\+E\+R\+\_\+\+E\+M\+P\+T\+Y}}
+\index{S\+T\+A\+T\+U\+S\+\_\+\+R\+I\+N\+G\+B\+U\+F\+F\+E\+R\+\_\+\+E\+M\+P\+T\+Y@{S\+T\+A\+T\+U\+S\+\_\+\+R\+I\+N\+G\+B\+U\+F\+F\+E\+R\+\_\+\+E\+M\+P\+T\+Y}!avr\+\_\+usart.\+h@{avr\+\_\+usart.\+h}}
+\subsubsection[{S\+T\+A\+T\+U\+S\+\_\+\+R\+I\+N\+G\+B\+U\+F\+F\+E\+R\+\_\+\+E\+M\+P\+T\+Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+T\+A\+T\+U\+S\+\_\+\+R\+I\+N\+G\+B\+U\+F\+F\+E\+R\+\_\+\+E\+M\+P\+T\+Y~80}}\label{avr__usart_8h_a638bba3e89b0fc63df78cbb3b867eb1d}
+Tried to pull from empty buffer \hypertarget{avr__usart_8h_ae56fdb340b23940f7a64ed2e37c1774a}{\index{avr\+\_\+usart.\+h@{avr\+\_\+usart.\+h}!S\+T\+A\+T\+U\+S\+\_\+\+S\+U\+C\+C\+E\+S\+S@{S\+T\+A\+T\+U\+S\+\_\+\+S\+U\+C\+C\+E\+S\+S}}
+\index{S\+T\+A\+T\+U\+S\+\_\+\+S\+U\+C\+C\+E\+S\+S@{S\+T\+A\+T\+U\+S\+\_\+\+S\+U\+C\+C\+E\+S\+S}!avr\+\_\+usart.\+h@{avr\+\_\+usart.\+h}}
+\subsubsection[{S\+T\+A\+T\+U\+S\+\_\+\+S\+U\+C\+C\+E\+S\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+T\+A\+T\+U\+S\+\_\+\+S\+U\+C\+C\+E\+S\+S~0}}\label{avr__usart_8h_ae56fdb340b23940f7a64ed2e37c1774a}
+Operation successful \hypertarget{avr__usart_8h_a80d21426775267b48a2296937441977a}{\index{avr\+\_\+usart.\+h@{avr\+\_\+usart.\+h}!U\+S\+A\+R\+T\+\_\+\+Puts@{U\+S\+A\+R\+T\+\_\+\+Puts}}
+\index{U\+S\+A\+R\+T\+\_\+\+Puts@{U\+S\+A\+R\+T\+\_\+\+Puts}!avr\+\_\+usart.\+h@{avr\+\_\+usart.\+h}}
+\subsubsection[{U\+S\+A\+R\+T\+\_\+\+Puts}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\+S\+A\+R\+T\+\_\+\+Puts(
+\begin{DoxyParamCaption}
+\item[{}]{str}
+\end{DoxyParamCaption}
+)~{\bf U\+S\+A\+R\+T\+\_\+\+Print}(str, strlen(str));}}\label{avr__usart_8h_a80d21426775267b48a2296937441977a}
+Wrapper for \hyperlink{avr__usart_8h_a74f0b39749de21678c191715fa5d8001}{U\+S\+A\+R\+T\+\_\+\+Print()} that automatically calculates the length. Use this with null-\/terminated strings. 
+
+\subsection{Typedef Documentation}
+\hypertarget{avr__usart_8h_a1156a503f1204bde06af09e66775eac3}{\index{avr\+\_\+usart.\+h@{avr\+\_\+usart.\+h}!status\+\_\+t@{status\+\_\+t}}
+\index{status\+\_\+t@{status\+\_\+t}!avr\+\_\+usart.\+h@{avr\+\_\+usart.\+h}}
+\subsubsection[{status\+\_\+t}]{\setlength{\rightskip}{0pt plus 5cm}typedef uint8\+\_\+t {\bf status\+\_\+t}}}\label{avr__usart_8h_a1156a503f1204bde06af09e66775eac3}
+Used for status codes 
+
+\subsection{Function Documentation}
+\hypertarget{avr__usart_8h_aa8ed209a5e830bec26e77d9f084302b1}{\index{avr\+\_\+usart.\+h@{avr\+\_\+usart.\+h}!U\+S\+A\+R\+T\+\_\+\+Getc@{U\+S\+A\+R\+T\+\_\+\+Getc}}
+\index{U\+S\+A\+R\+T\+\_\+\+Getc@{U\+S\+A\+R\+T\+\_\+\+Getc}!avr\+\_\+usart.\+h@{avr\+\_\+usart.\+h}}
+\subsubsection[{U\+S\+A\+R\+T\+\_\+\+Getc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf status\+\_\+t} U\+S\+A\+R\+T\+\_\+\+Getc (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{c}
+\end{DoxyParamCaption}
+)}}\label{avr__usart_8h_aa8ed209a5e830bec26e77d9f084302b1}
+Get a character from the ringbuffer
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & Store character in c \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+S\+T\+A\+T\+U\+S\+\_\+\+S\+U\+C\+C\+E\+S\+S or S\+T\+A\+T\+U\+S\+\_\+\+R\+I\+N\+G\+B\+U\+F\+F\+E\+R\+\_\+\+E\+M\+P\+T\+Y 
+\end{DoxyReturn}
+\hypertarget{avr__usart_8h_a54bfd92d06f7f0e5a4ada1fd1d6455a3}{\index{avr\+\_\+usart.\+h@{avr\+\_\+usart.\+h}!U\+S\+A\+R\+T\+\_\+\+Gets@{U\+S\+A\+R\+T\+\_\+\+Gets}}
+\index{U\+S\+A\+R\+T\+\_\+\+Gets@{U\+S\+A\+R\+T\+\_\+\+Gets}!avr\+\_\+usart.\+h@{avr\+\_\+usart.\+h}}
+\subsubsection[{U\+S\+A\+R\+T\+\_\+\+Gets}]{\setlength{\rightskip}{0pt plus 5cm}int16\+\_\+t U\+S\+A\+R\+T\+\_\+\+Gets (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{buffer, }
+\item[{uint16\+\_\+t}]{maxlen}
+\end{DoxyParamCaption}
+)}}\label{avr__usart_8h_a54bfd92d06f7f0e5a4ada1fd1d6455a3}
+Pull a string from the receive buffer
+
+Fetches up to maxlen chars and returns them to buffer. Does not null-\/terminate or anything like that. Call U\+S\+A\+R\+T\+\_\+\+Gets(buff, 1) to fetch a single character.
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & Destination for pulled string \\
+\hline
+{\em maxlen} & Maximum length of string to fetch from buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The actual number of characters fetched. 
+\end{DoxyReturn}
+\hypertarget{avr__usart_8h_a74f0b39749de21678c191715fa5d8001}{\index{avr\+\_\+usart.\+h@{avr\+\_\+usart.\+h}!U\+S\+A\+R\+T\+\_\+\+Print@{U\+S\+A\+R\+T\+\_\+\+Print}}
+\index{U\+S\+A\+R\+T\+\_\+\+Print@{U\+S\+A\+R\+T\+\_\+\+Print}!avr\+\_\+usart.\+h@{avr\+\_\+usart.\+h}}
+\subsubsection[{U\+S\+A\+R\+T\+\_\+\+Print}]{\setlength{\rightskip}{0pt plus 5cm}int16\+\_\+t U\+S\+A\+R\+T\+\_\+\+Print (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{str, }
+\item[{uint16\+\_\+t}]{len}
+\end{DoxyParamCaption}
+)}}\label{avr__usart_8h_a74f0b39749de21678c191715fa5d8001}
+Print up to len chars to the T\+X buffer
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & String to print \\
+\hline
+{\em len} & Length of str \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of characters printed 
+\end{DoxyReturn}
+\hypertarget{avr__usart_8h_a506f0255dea4e57847a5bbfe6fecd19d}{\index{avr\+\_\+usart.\+h@{avr\+\_\+usart.\+h}!U\+S\+A\+R\+T\+\_\+\+Printf@{U\+S\+A\+R\+T\+\_\+\+Printf}}
+\index{U\+S\+A\+R\+T\+\_\+\+Printf@{U\+S\+A\+R\+T\+\_\+\+Printf}!avr\+\_\+usart.\+h@{avr\+\_\+usart.\+h}}
+\subsubsection[{U\+S\+A\+R\+T\+\_\+\+Printf}]{\setlength{\rightskip}{0pt plus 5cm}int16\+\_\+t U\+S\+A\+R\+T\+\_\+\+Printf (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{fmt, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}}\label{avr__usart_8h_a506f0255dea4e57847a5bbfe6fecd19d}
+Printf wrapper that uses U\+S\+A\+R\+T Do not use because it explodes! (probably)
+
+
+\begin{DoxyParams}{Parameters}
+{\em fmt} & Why are you still reading? \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Seriously, stop. Don't use this. 
+\end{DoxyReturn}
+\hypertarget{avr__usart_8h_a13f8b2b31a4c1ba192b84dae98cb8cb4}{\index{avr\+\_\+usart.\+h@{avr\+\_\+usart.\+h}!U\+S\+A\+R\+T\+\_\+\+Putc@{U\+S\+A\+R\+T\+\_\+\+Putc}}
+\index{U\+S\+A\+R\+T\+\_\+\+Putc@{U\+S\+A\+R\+T\+\_\+\+Putc}!avr\+\_\+usart.\+h@{avr\+\_\+usart.\+h}}
+\subsubsection[{U\+S\+A\+R\+T\+\_\+\+Putc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf status\+\_\+t} U\+S\+A\+R\+T\+\_\+\+Putc (
+\begin{DoxyParamCaption}
+\item[{char}]{c}
+\end{DoxyParamCaption}
+)}}\label{avr__usart_8h_a13f8b2b31a4c1ba192b84dae98cb8cb4}
+Put a character into the T\+X buffer
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & Character to eventually T\+X \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+S\+T\+A\+T\+U\+S\+\_\+\+S\+U\+C\+C\+E\+S\+S or explosions 
+\end{DoxyReturn}
